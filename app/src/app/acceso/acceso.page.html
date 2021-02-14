@@ -1,0 +1,20 @@
+
+
+<ion-content color="light">
+ 
+
+  <img  class ="logomarca" *showItBootstrap="['xs']" src="./assets/png/logomarca.png" > 
+  <img class ="logomarcagrande" *showItBootstrap="['md','sm','lg','xl']" src="./assets/png/logomarcagrande.png" > 
+ 
+   <div *showItBootstrap="['xs']" class="separador"></div>
+   <div  *showItBootstrap="['md','sm','lg','xl']" class="separadorgrande"></div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+          <!-- <p *showItBootstrap="['xs']">Pantalla chica</p>
+          <p *showItBootstrap="['md','sm']">Pantalla mediana</p>
+          <p *showItBootstrap="['lg','xl']">Pantalla grande</p> -->
+       
+</ion-content>

@@ -1,0 +1,43 @@
+
+<div (window:resize)="onResize($event)" #caja>
+  <div class="corazoncaja">
+  <svg-icon 
+  [@thumbStaterevez]="corazonestado"
+  [ngClass]="{'corazonsmall' : (srvApp.swchsizesmall === true)  }"
+  (click)= "pushfavorito()" src="./assets/svg/corazonblanco.svg"  class= "corazoninactivo"></svg-icon>
+<svg-icon 
+[ngClass]="{'corazonsmall' : (srvApp.swchsizesmall === true)  }"
+[@thumbState]="corazonestado"
+ (click)= "pushfavorito()" src="./assets/svg/corazonnuevo.svg"  class="corazonactivo">
+</svg-icon>
+</div>
+<ion-card  [ngClass]="{'tarjetasmall' : (srvApp.swchsizesmall === true)  }" >
+  <ion-card-header >
+    <ion-label [routerLink]="['/avisodetalle', aviso.id]"class="fotosNumero">{{ aviso.detalle.cantidadfotos }}</ion-label>
+
+    <ion-item color="medium" [routerLink]="['/avisodetalle', aviso.id]" lines="none">
+      <ion-text #nombre>{{ aviso.detalle.nombre | titlecase }}</ion-text>
+      <label id="fecha">{{ aviso.detalle.fecha | date: "mediumDate" }}</label>
+      <label id="distancia">{{ aviso.detalle.comuna }}</label>
+    </ion-item>
+    <img [routerLink]="['/avisodetalle', aviso.id]" class="foto" [src]="aviso.detalle.fotos[0]" />
+    
+    <svg-icon class="camara" src="./assets/svg/camara.svg"></svg-icon>
+  </ion-card-header>
+  <ion-card-content [routerLink]="['/avisodetalle', aviso.id]">
+    <ion-row>
+      <br />
+      <ion-col 
+      class="ayudabusca" size="4"><label [ngClass]="{'resaltado' : (srvApp.sexo === true)  }" class="ayudabuscalabel">{{ aviso.detalle.sexo  }}</label>
+     
+    </ion-col>
+      <ion-col 
+      class="ayudabusca" size="4"><label [ngClass]="{'resaltado' : (srvApp.edad === true)  }" class="ayudabuscalabel">{{ aviso.detalle.edad }}</label>
+    </ion-col>
+      <ion-col class="ayudabusca" size="4">
+        <label [ngClass]="{'resaltado' : (srvApp.size === true)  }" class="ayudabuscalabel">{{ aviso.detalle.size  }}</label>
+       </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card> 
+</div>

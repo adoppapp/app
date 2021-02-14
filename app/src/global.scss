@@ -1,0 +1,82 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+@import "./theme/animaciones.css";
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "../src/theme/vivify.css";
+
+
+@font-face {
+  font-family: 'Fredoka One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/fredoka/fredoka-one-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Fredoka One'), local('FredokaOne-Regular'),
+       url('./assets/fonts/fredoka/fredoka-one-v7-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/fredoka/fredoka-one-v7-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/fredoka/fredoka-one-v7-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/fredoka/fredoka-one-v7-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/fredoka/fredoka-one-v7-latin-regular.svg#FredokaOne') format('svg'); /* Legacy iOS */
+}
+
+/* nunito-200 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 200;
+  src: url('./assets/fonts/nunito/nunito-v12-latin-200.eot'); /* IE9 Compat Modes */
+  src: local('Nunito ExtraLight'), local('Nunito-ExtraLight'),
+       url('./assets/fonts/nunito/nunito-v12-latin-200.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/nunito/nunito-v12-latin-200.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/nunito/nunito-v12-latin-200.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/nunito/nunito-v12-latin-200.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/nunito/nunito-v12-latin-200.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+/* nunito-regular - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/nunito/nunito-v12-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Nunito Regular'), local('Nunito-Regular'),
+       url('./assets/fonts/nunito/nunito-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/nunito/nunito-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/nunito/nunito-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/nunito/nunito-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/nunito/nunito-v12-latin-regular.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+/* nunito-900 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: url('./assets/fonts/nunito/nunito-v12-latin-900.eot'); /* IE9 Compat Modes */
+  src: local('Nunito Black'), local('Nunito-Black'),
+       url('./assets/fonts/nunito/nunito-v12-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('./assets/fonts/nunito/nunito-v12-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('./assets/fonts/nunito/nunito-v12-latin-900.woff') format('woff'), /* Modern Browsers */
+       url('./assets/fonts/nunito/nunito-v12-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./assets/fonts/nunito/nunito-v12-latin-900.svg#Nunito') format('svg'); /* Legacy iOS */
+}
+

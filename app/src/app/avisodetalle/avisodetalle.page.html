@@ -1,0 +1,154 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="aviso$ | async as aviso"
+      >{{aviso.nombre | titlecase}}</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content color="light" *ngIf="aviso$ | async as aviso">
+   <div  *ngIf="!swtSolicitud"> <app-cajausuario [userpregunta]="uId" [userconsultar]="aviso.uid" [solicitante]=false></app-cajausuario></div> 
+  <div  *showItBootstrap="['xs']"  class="pared">
+    <div *ngFor="let foto of fotos index as i">
+      <img class="foto" [@thumbState]="foto.estado" [src]="foto.imagen" />
+      <svg-icon
+        [style.top]="topbotones"
+        *ngIf="(foto.activa)"
+        (click)="pasarFoto('back',i)"
+        class="back"
+        src="./assets/svg/back.svg"
+      ></svg-icon>
+      <svg-icon
+        [style.top]="topbotones"
+        *ngIf="(foto.activa)"
+        (click)="pasarFoto('forward',i)"
+        class="forward"
+        src="./assets/svg/forward.svg"
+      ></svg-icon>
+    </div>
+    <div [ngClass]="srvApp.swchsizesmall ? 'fabsmall' : 'fabgrande'">
+      <ion-fab-button
+        *ngFor="let foto of fotos index as i"
+        (click)="activarFoto(i)"
+        [color]="foto.color"
+        size="small"
+        >{{foto.numero}}</ion-fab-button
+      >
+    </div>
+  </div>
+
+<div  *showItBootstrap="['sm','md','lg','xl']" class="fotosbig">
+    <div *ngFor="let foto of fotos index as i">
+      <img class="foto" [@thumbState]="foto.estado" [src]="foto.imagen" />
+      <svg-icon
+        [style.top]="topbotones"
+        *ngIf="(foto.activa)"
+        (click)="pasarFoto('back',i)"
+        class="back"
+        src="./assets/svg/back.svg"
+      ></svg-icon>
+      <svg-icon
+        [style.top]="topbotones"
+        *ngIf="(foto.activa)"
+        (click)="pasarFoto('forward',i)"
+        class="forward"
+        src="./assets/svg/forward.svg"
+      ></svg-icon>
+    </div>
+    <div class="fabgrande">
+      <ion-fab-button
+        *ngFor="let foto of fotos index as i"
+        (click)="activarFoto(i)"
+        [color]="foto.color"
+        size="small"
+        >{{foto.numero}}</ion-fab-button
+      >
+    </div>
+  </div>
+
+  <br />
+  <div [ngClass]="srvApp.swchsizesmall ? 'formulariosmall' : 'formulariobig'">
+  <ion-item color="light" lines="none">
+    <svg-icon *ngIf=!activoFavorito (click)="pushfavorito()" src="./assets/svg/corazonblanco.svg" class="corazon corazoninactivo"  ></svg-icon>
+    <svg-icon *ngIf=activoFavorito (click)="pushfavorito()" src="./assets/svg/corazonnuevo.svg" class="corazon corazonactivo"  ></svg-icon>
+    <ion-label class="favoritos">{{aviso.favoritos}}</ion-label>
+   
+    <ion-label class="region">{{aviso.region}}</ion-label>
+    <ion-label class="comuna">{{aviso.comuna}}</ion-label>
+       <svg-icon
+        class="location"
+        src="./assets/svg/location.svg"
+      ></svg-icon>
+  </ion-item>
+  <ion-item color="light" lines="none">
+    <ion-label slot="start">Sexo</ion-label>  
+    <ion-label slot="end" class="info">{{aviso.sexo}}</ion-label>
+  </ion-item>
+  <ion-item color="light" lines="none">
+    <ion-label slot="start">Edad</ion-label>
+    <ion-label slot="end" class="info">{{aviso.edad}}</ion-label>
+  </ion-item>
+  <ion-item color="light" lines="none">
+    <ion-label slot="start">Tamaño</ion-label>
+    <ion-label slot="end" class="info">{{aviso.size}}</ion-label>
+  </ion-item>
+  <ion-item color="light"  *ngIf="(aviso.sexo ==='Macho')" lines="none"erhb pp
+    ><ion-label class="tit">Asi lo describen</ion-label></ion-item
+  >
+  <ion-item color="light" *ngIf="(aviso.sexo ==='Hembra')" lines="none"
+    ><ion-label class="tit">Asi la describen</ion-label></ion-item
+  >
+  <ion-item color="light"
+    ><ion-label class="ion-text-wrap"
+      >{{aviso.descripcion}}</ion-label
+    ></ion-item
+  >
+  </div>
+  <br />
+ <div *ngIf="uId !== aviso.uid"> 
+    <ion-button *ngIf="swtSolicitud  else estatusSolicitud" (click)="solicitar()" expand="block">Solicitar Adopciòn
+        <svg-icon slot="end"
+              [style.fill]="srvApp.medium"
+              src="./assets/svg/solicitud-adopcion-lite.svg"
+              class="solicitud"
+            ></svg-icon>
+      </ion-button>
+</div>
+
+<div *ngIf="uId == aviso.uid"> 
+
+  <div *ngIf="solicitudxaviso$ | async as solicitudavisos ">
+    <div *ngIf ="(solicitudavisos.length > 0) else sinsolcitudes">
+    <ion-item color = light>
+      <ion-label class="textopostulante">postulantes para adoptar</ion-label>
+    </ion-item>
+    <app-cajausuario *ngFor="let solicitudxaviso of solicitudavisos" [userpregunta]="uId" [userconsultar]="solicitudxaviso.uid" [aviso]="avisoId" [estado]="solicitudxaviso.estado" [solicitante]=true  > 
+
+    </app-cajausuario>
+    </div>
+    
+  </div>
+   
+</div>
+<ng-template #sinsolcitudes>
+      <ion-item color = light>
+      <ion-label class="textopostulante">Sin Solicitudes de apcion aun</ion-label>
+    </ion-item>
+</ng-template>
+  <ng-template #estatusSolicitud>
+
+    <ion-item color="light" lines="none">
+      <ion-label class="textoEspera">Tu solicitud esperando por aprobación</ion-label>
+       <svg-icon slot="end"
+            src="./assets/svg/esperar.svg"
+            class="esperar"
+          ></svg-icon>
+    </ion-item>
+   
+  </ng-template>
+  <br />
+</ion-content>
+

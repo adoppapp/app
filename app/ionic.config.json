@@ -1,0 +1,9 @@
+{
+  "name": "app",
+  "integrations": {},
+  "type": "angular",
+   "proxies": [{
+        "path": "https:app0.cloudfunctions.net//us-central1-adopt",
+        "proxyUrl": "https:app0.cloudfunctions.net//us-central1-adopt"
+    }]
+}

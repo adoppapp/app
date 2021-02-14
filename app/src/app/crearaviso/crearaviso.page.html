@@ -1,0 +1,215 @@
+<ion-header>
+  <ion-toolbar color="light">
+
+    <ion-title class="titulo">Publica tu Aviso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <div [ngClass]="appsrv.swchsizesmall ? 'fotossmall' : 'fotosbig'" >
+    <div class="divtitulo"><a class="subtitulo">Sube sus fotos</a></div>
+    <ion-grid>
+      <ion-row>
+        <ion-col justify-content-center size="6">
+          <ion-card
+            [ngClass]="{'tarjetasmall' : (appsrv.swchsizesmall === true)  }"
+            (click)="inputImage1.click()"
+          >
+            <img class="centro"
+              class="imagen slit-in-vertical"
+              *ngIf="(imagenes[0].cargada)"
+              [src]="imagenes[0].imagen"
+            />
+            <svg-icon
+              *ngIf="!(imagenes[0].cargada)"
+              [className]="imagenes[0].activo ? 'svg-icon addactivo' : 'svg-icon addinactivo'"
+              class="svg-icon"
+              src="./assets/svg/addimage.svg"
+              [stretch]="true"
+            ></svg-icon>
+          </ion-card>
+        </ion-col>
+        <ion-col size="6">
+          <ion-card
+             [ngClass]="{'tarjetasmall' : (appsrv.swchsizesmall === true)  }"
+            (click)="inputImage1.click()"
+          >
+            <img
+              class="imagen scale-in-center"
+              *ngIf="(imagenes[1].cargada)"
+              [src]="imagenes[1].imagen"
+            />
+            <svg-icon
+               *ngIf="!(imagenes[1].cargada)"
+              [className]="imagenes[1].activo ? 'svg-icon addactivo animated fadeIn' : 'svg-icon addinactivo'"
+              class="svg-icon"
+               src="./assets/svg/addimage.svg"
+            ></svg-icon>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+         <ion-card
+            [ngClass]="{'tarjetasmall' : (appsrv.swchsizesmall === true)  }"
+            (click)="inputImage1.click()"
+          >
+            <img
+              class="imagen scale-in-center"
+              *ngIf="(imagenes[2].cargada)"
+              [src]="imagenes[2].imagen"/>
+            <svg-icon
+               *ngIf="!(imagenes[2].cargada)"
+              [className]="imagenes[2].activo ? 'svg-icon addactivo' : 'svg-icon addinactivo'"
+              class="svg-icon"
+               src="./assets/svg/addimage.svg"
+            ></svg-icon
+          ></ion-card>
+        </ion-col>
+        <ion-col size="6">
+         <ion-card
+            [ngClass]="{'tarjetasmall' : (appsrv.swchsizesmall === true)  }"
+            (click)="inputImage1.click()"
+          >
+            <img
+              class="imagen scale-in-center"
+              *ngIf="(imagenes[3].cargada)"
+              [src]="imagenes[3].imagen"/>
+            <svg-icon
+               *ngIf="!(imagenes[3].cargada)"
+              [className]="imagenes[3].activo ? 'svg-icon addactivo' : 'svg-icon addinactivo'"
+              class="svg-icon"
+               src="./assets/svg/addimage.svg"
+            ></svg-icon
+          ></ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <br />
+  <div class="divtitulo"><a class="subtitulo">Ingresa sus datos</a></div>
+  <div [ngClass]="appsrv.swchsizesmall ? 'formulariosmall' : 'formulariobig'">
+    <form (ngSubmit)="onSaveAaviso(avisoForm.value)" [formGroup]="avisoForm">
+      <ion-item color="light" lines="none">
+        <ion-input placeholder="Su nombre es" formControlName="nombre"></ion-input>
+      </ion-item>
+        <ion-item color="light" lines="none">
+        <ion-label color="dark">Es perro o Gato</ion-label>
+        <ion-select formControlName="especie" color="dark" interface="action-sheet">
+          <ion-select-option value="Perro">Perro</ion-select-option>
+          <ion-select-option value="Gato">Gato</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item color="light" lines="none">
+        <ion-label color="dark">Tamaño</ion-label>
+        <ion-select formControlName="size" color="dark" interface="action-sheet">
+          <ion-select-option value="Pequeño">Pequeño</ion-select-option>
+          <ion-select-option value="Mediano">Mediano</ion-select-option>
+          <ion-select-option value="Grande">Grande</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item color="light" lines="none">
+        <ion-label color="dark">Sexo</ion-label>
+        <ion-select formControlName="sexo" interface="action-sheet">
+          <ion-select-option value="Hembra">Hembra</ion-select-option>
+          <ion-select-option value="Macho">Macho</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item color="light" lines="none">
+        <ion-label color="dark">Edad</ion-label>
+        <ion-select formControlName="edad" interface="action-sheet">
+          <ion-select-option value="Cachorro">Cachoro</ion-select-option>
+          <ion-select-option value="Juvenil">Juvenil</ion-select-option>
+          <ion-select-option value="Adulto">Adulto</ion-select-option>
+          <ion-select-option value="Senior">Senior</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item color="light" lines="none">
+        <ion-label color="dark">Región</ion-label>
+        <ion-select
+          (ionChange)="onChange($event)"
+          formControlName="region"
+          interface="action-sheet"
+        >
+          <div *ngFor="let region of regiones">
+            <ion-select-option [value]="region.region">
+              {{region.region}}</ion-select-option
+            >
+          </div>
+        </ion-select>
+      </ion-item>
+
+      <ion-item color="light" lines="none">
+        <ion-label color="dark">Comunas</ion-label>
+        <ion-select formControlName="comuna" interface="action-sheet">
+          <div *ngFor="let comuna of comunas">
+            <ion-select-option [value]="comuna"> {{comuna}}</ion-select-option>
+          </div>
+        </ion-select>
+      </ion-item>
+      <ion-item color="light" lines="none">
+        <ion-input
+          placeholder="Direccion"
+          formControlName="direccion"
+        ></ion-input>
+      </ion-item>
+      <ion-item color="light" lines="none">
+        <ion-textarea
+          placeholder="Como lo describirias....."
+          formControlName="descripcion"
+        ></ion-textarea>
+      </ion-item>
+
+      <br />
+      <br />
+      <ion-button
+        expand="block"
+        shape="round"
+        [disabled]="!avisoForm.valid"
+        type="submit"
+        value="Save"
+        >Publicar <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </form>
+  </div>
+ <input
+          hidden
+          type="file"
+          #inputImage1
+          (change)="fileChangeEvent($event)"
+        />
+  <!-- ******************** CROPPER************************************* -->
+  <div *ngIf="cropvisible" id="container" class='swoopInBottom'>
+    <div class="row" style="margin-top: 5%;">
+      <div class="text-center col-md-12">
+       
+      </div>
+    </div>
+    <ion-button (click)="tomarcropp()" 
+          shape="round"
+          expand="block"
+    >Tomar Seleccion</ion-button>
+    <div class="row" style="margin-top: 5%;">
+      <div class="text-center col-md-8">
+        <h5>Por favor Encuadra la imagen para guardar</h5>
+        <image-cropper
+          [imageChangedEvent]="imageChangedEvent"
+          [maintainAspectRatio]="true"
+          [aspectRatio]="4 / 3"
+          [resizeToWidth]="556"
+          format="png"
+          (imageCropped)="imageCropped($event)"
+          (imageLoaded)="imageLoaded()"
+          (cropperReady)="cropperReady()"
+          (loadImageFailed)="loadImageFailed()"
+        ></image-cropper>
+      </div>
+
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+</ion-content>

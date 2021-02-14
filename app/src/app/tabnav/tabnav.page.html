@@ -1,0 +1,64 @@
+<ion-content mode="md">
+  <ion-tabs>
+    <ion-tab-bar color="light" slot="bottom">
+      <ion-tab-button  (click)="push(0)" [routerLink]="['']">
+        <div
+          class="dot"
+          [@seleccionado]="{value : tabOpcion[0].estado, params: { coloractivo: srvApp.medium, colorinactivo: srvApp.light}}"
+          id="fab1"
+          color="light"
+        >
+         <svg-icon *ngIf=(tabOpcion[0].selec)
+            id="iconoHome"
+            [style.fill]="tabOpcion[0].colorIcon"
+            src="./assets/svg/home-blanco.svg"
+          ></svg-icon>
+          <svg-icon
+            src="./assets/svg/home-linea.svg"
+            [style.fill]="tabOpcion[0].colorIcon"
+            id="iconoHome"
+          ></svg-icon>
+        </div>
+      </ion-tab-button>
+      <ion-tab-button  (click)="push(1)" [routerLink]="['/tabnav/crearaviso']" >
+        <div
+          class="dot"
+          [@seleccionado]="{value : tabOpcion[1].estado, params: { coloractivo: srvApp.medium, colorinactivo: srvApp.light}}"
+          id="fab2"
+        >
+         <svg-icon *ngIf=(tabOpcion[1].selec)
+            id="iconoAdd"
+            [style.fill]="tabOpcion[1].colorIcon"
+            src="./assets/svg/add-blanco.svg"
+          ></svg-icon>
+          <svg-icon
+            src="./assets/svg/add-linea.svg"
+            [style.fill]="tabOpcion[1].colorIcon"
+            id="iconoAdd"
+          ></svg-icon>
+        </div>
+      </ion-tab-button>
+
+      <ion-tab-button (click)="push(2)"  [routerLink]="['/tabnav/lista-mensajes']">
+        <div
+          class="dot"
+          [@seleccionado]="{value : tabOpcion[2].estado, params: { coloractivo: srvApp.medium, colorinactivo: srvApp.light}}"
+          id="fab3"
+        >
+        <svg-icon *ngIf=(tabOpcion[2].selec)
+            id="icono"
+            [style.fill]="tabOpcion[2].colorIcon"
+            src="./assets/svg/mensaje-blanco.svg"
+          ></svg-icon>
+          <svg-icon
+            id="icono"
+            [style.fill]="tabOpcion[2].colorIcon"
+            src="./assets/svg/mensaje-linea.svg"
+          ></svg-icon>
+        </div>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+ 
+</ion-content>

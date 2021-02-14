@@ -1,0 +1,15 @@
+
+<ion-app (window:resize)="onResize($event)">
+  <ion-split-pane contentId="main-content">
+      
+    <div *ngIf="srvApp.menuok$ | async" >
+    <ion-menu side="start" content-id="main-content" >
+        <app-r-menu-usuario></app-r-menu-usuario>
+    </ion-menu>
+    </div>
+    <ion-router-outlet  id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+  
+      
+</ion-app>
+

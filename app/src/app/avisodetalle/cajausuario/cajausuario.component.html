@@ -1,0 +1,32 @@
+<ion-item *ngIf="swcargado$ | async  else noUsersMessage" >
+        <ion-avatar>
+        <img [src]='user.photoURL'>
+        </ion-avatar>
+        <ion-label class="nombre">
+         {{user.displayName}}
+        </ion-label>
+        <div *ngIf = solicitante>
+          <div *ngIf = "estado == 'activa'">
+               <svg-icon (click)="aprobar()" class ="botones"
+           src="./assets/svg/checked.svg"
+        ></svg-icon>
+           <svg-icon class ="botones" (click)="rechazar()"
+        src="./assets/svg/exis.svg"
+        ></svg-icon>
+          </div>
+         <div *ngIf = "estado == 'rechazado'"> <ion-label color = "danger" class= "texto">Rechazado</ion-label></div>
+         <div *ngIf = "estado == 'aprobado'"> <ion-label color = "success" class= "texto">Seleccionado</ion-label></div>
+        </div>
+         <svg-icon
+        class="chat"
+        src="./assets/svg/mensaje-linea.svg"
+      ></svg-icon>
+</ion-item >
+
+<ng-template #noUsersMessage>
+  <ion-item>
+
+  <ion-spinner name="circles"></ion-spinner>
+
+</ion-item >
+</ng-template>

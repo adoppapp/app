@@ -1,0 +1,42 @@
+img {
+  height: 200px;
+  width: 100%;
+  background: var(--ion-color-light)!important;
+}
+ion-content {
+  position: relative;
+background: var(--ion-color-light)!important;
+}
+.logomarca{
+  width: 261px;
+  height: 61px;
+  position: relative;
+  top:20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logomarcagrande{
+  width: 561px;
+  height: 109px;
+  position: relative;
+  top:50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.separador{
+  height: 50px;
+}
+.separadorgrande{
+  height: 150px;
+}
+.size {
+  z-index: 100;
+}
+.router-outlet {
+  width: 100%!important;;
+  position: absolute;
+  top:140px!important;
+}
+.iteminput{
+    width: 450px!important;
+}

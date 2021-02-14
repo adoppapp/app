@@ -1,0 +1,100 @@
+ion-tab-bar {
+  background: var(--ion-color-light);
+  position: relative;
+  overflow: visible;
+  contain: none!important;
+}
+ion-tabs{
+     overflow: visible!important;
+     contain: none!important;
+
+}
+ion-tab-button {
+    overflow: visible!important;
+     contain: none!important;
+}
+#tabBar {
+  background: var(--ion-color-primary) !important;
+  position: absolute;
+  z-index: 1001;
+  width: 100%;
+}
+ion-button {
+  border-radius: 100%;
+}
+ion-col{
+    
+    border: 1px solid black!important;
+}
+#botonera {
+  opacity: 1;
+  padding: 5px;
+  background: var(--ion-color-light);
+  border: 1px solid var(--ion-color-light-contrast);
+  border-radius: 40px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  position: absolute;
+  z-index: 1002;
+  bottom: 0px;
+  height: 52px;
+  width: 100%;
+}
+#fab1 {
+  position: absolute;
+  z-index: 1003;
+  bottom: 0px;
+  outline: none;
+}
+#fab2 {
+  position: absolute;
+  z-index: 1003;
+  bottom: 0px;
+  outline: none;
+}
+#fab3 {
+  position: absolute;
+  z-index: 1003;
+  bottom: 0px;
+  outline: none;
+}
+.seleccion {
+  fill: var(--ion-color-primary) !important;
+}
+
+#icono {
+  position: absolute;
+  width: 51px;
+  height: 45px;
+  left: 0px;
+  top: 8px;
+  z-index: 10;
+}
+#iconoAdd {
+  position: absolute;
+  width: 51px;
+  height: 45px;
+  left: 0px;
+  top: 8px !important;
+  z-index: 10;
+}
+#iconoHome {
+  position: absolute;
+  left: 12px;
+  top: 7px;
+  z-index: 10;
+}
+.iconoinactivo {
+  fill: var(--ion-color-medium);
+}
+.iconoactivo {
+  fill: var(--ion-color-light-contrast);
+}
+.dot {
+  position: absolute;
+  height: 45px;
+  width: 51px;
+  background: var(--ion-color-light);
+  border-radius: 50%;
+  display: inline-block;
+}

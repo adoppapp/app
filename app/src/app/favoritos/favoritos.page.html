@@ -1,0 +1,33 @@
+<ion-header>
+ 
+  <ion-toolbar color="light">
+     <ion-buttons>
+    <ion-back-button  text=""></ion-back-button>
+  </ion-buttons>
+    <ion-title >Tus favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium" [@cardAnimation]="favoritos.length">
+   <ion-progress-bar
+    *ngIf="(swtCargando)"
+    type="indeterminate"
+  ></ion-progress-bar>
+  <ion-item
+    color="light"
+    [routerLink]="['/avisodetalle/', favorito.avisoid]"
+    routerLinkActive="router-link-active"
+    *ngFor="let favorito of favoritos "
+  >
+    <ion-thumbnail>
+    <ion-img [src]="favorito.fotoAviso"> </ion-img>
+    </ion-thumbnail>
+    <ion-label slot="end" class="nombre"
+      >{{favorito.nombreAviso| titlecase}}</ion-label
+    >
+    <ion-label slot="end" class="fecha"
+      >{{favorito.fechaAviso| date: "mediumDate"}}</ion-label
+    >
+  </ion-item>
+
+</ion-content>

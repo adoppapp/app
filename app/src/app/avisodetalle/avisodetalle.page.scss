@@ -1,0 +1,133 @@
+.back {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  left: 10px;
+}
+.forward {
+  position: absolute;
+  top: 50%;
+  transform: translatey(-50%);
+  
+  
+  right: 10px;
+}
+content {
+  position: relative;
+}
+.location {
+  position: absolute;
+  right: 5px;
+}
+.marco {
+  position: absolute;
+  min-height: 300px;
+  width: 100%;
+  border: 1px solid;
+}
+.pared {
+  position: relative;
+  min-height: 300px;
+}
+.formulariobig {
+  padding-top: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.formulariosmall {
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.fotosbig {
+  position: relative;
+  left: 50%;
+  transform: translatex(-50%);
+  height: 300px;
+  width: 500px;
+}
+div {
+  position: relative;
+}
+ion-fab-button {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  z-index: 23;
+}
+.textopostulante {
+  color: var(--ion-color-primary);
+  position: relative;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+}
+.fabgrande {
+  position: absolute;
+  transform: translatex(-50%);
+  bottom: -70px!important;
+  left: 50%;
+  z-index: 3;
+  display: inline !important;
+}
+.fabsmall {
+  position: absolute;
+  transform: translatex(-50%);
+  bottom: -10px!important;
+  left: 50%;
+  z-index: 3;
+  display: inline !important;
+}
+
+.foto {
+  top: 0;
+  position: absolute;
+}
+.region {
+  top: -15px;
+  position: absolute;
+  right: 30px;
+  font-weight: 200;
+}
+.comuna {
+  top: 3px;
+  position: absolute;
+  right: 30px;
+  font-weight: 200;
+}
+.corazonactivo {
+  position: absolute;
+  top: 3px !important;
+  left: 2px;
+  fill: var(--ion-color-tertiary);
+  animation: jello-vertical 0.9s both;
+}
+.corazoninactivo {
+  animation: jello-vertical 0.9s both;
+  position: absolute;
+  left: 2px;
+  top: 3px !important;
+  fill: white;
+}
+.info {
+  font-weight: 900;
+}
+.tit {
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+}
+.favoritos {
+  position: absolute;
+  top: -3px !important;
+  left: 70px!important;
+  font-weight: 200;
+}
+.solicitud {
+  padding-left: 30px;
+  z-index: 20;
+}
+.textoEspera {
+  color: var(--ion-color-primary);
+  font-weight: 900;
+}

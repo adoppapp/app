@@ -1,0 +1,111 @@
+<div *showItBootstrap="['xs']" class="contenedor swoopInRight">
+    <div class="logintitulo ">
+      Reiniciar Password
+    </div>
+    <form [formGroup]="rForm">
+      <ion-item color="light" lines="none">
+        <ion-icon slot="start"
+          class="swoopInRight"
+          name="mail-outline"
+        ></ion-icon>
+        <ion-item   class="swoopInRight fadein" color="light" >
+          <ion-label color="dark" position="floating">Correo</ion-label>
+          <ion-input
+          class='iteminput swoopInRight'
+            formControlName="email"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-text
+        class="center animated zoomIn fast"
+        color="danger"
+        *ngIf="!rForm.controls.email.valid && rForm.controls.email.dirty"
+      >
+        Favor ingresar Correo Valido.
+      </ion-text>
+      
+      <div class="abajo swoopInRight">
+        <ion-button
+          shape="round"
+          expand="block"
+          [disabled]="!rForm.valid"
+          (click)="reiniciar()"
+          >Enviar coorreo</ion-button
+        >
+        
+        
+        <ion-row>
+          <ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/login']"
+                >Login</a
+              >
+            </ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/registro']"
+                >Registrarse</a
+              >
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+</div>
+<!-- ************************** Grande ************************************************************ -->
+<div *showItBootstrap="['md','sm','lg','xl']" class="contenedor swoopInRight">
+  <ion-card>
+    <div class="logintitulo titulogrande swoopInRight">
+      Reiniciar Password
+    </div>
+    <form [formGroup]="rForm">
+      <ion-item color="medium" lines="none">
+        <ion-icon
+          class="animated bounceInDown fast"
+          name="mail-outline"
+        ></ion-icon>
+     
+          <ion-label  class="labelgrande" color="dark" >Correo</ion-label>
+          <ion-input class="inputgrande" color="dark"
+            formControlName="email"
+            type="text"
+          ></ion-input>
+   
+      </ion-item>
+      <ion-text
+        class="center animated zoomIn fast"
+        color="danger"
+        *ngIf="!rForm.controls.email.valid && rForm.controls.email.dirty"
+      >
+        Favor ingresar Correo Valido.
+      </ion-text>
+      
+      <div class="abajo swoopInRight">
+       
+        <ion-button
+          shape="round"
+          class="botongrande"
+          [disabled]="!rForm.valid"
+          (click)="reiniciar()"
+          >Enviar Correo</ion-button
+        >
+       
+        
+        <ion-row>
+          <ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/login']"
+                >Login</a
+              >
+            </ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/registro']"
+                >Registrarse</a
+              >
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+    </ion-card>
+</div>

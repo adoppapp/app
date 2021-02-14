@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+      slot="start"
+    >
+      <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+    </ion-buttons>
+    <ion-title color="tertiary">Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <form (ngSubmit)="onSaveUser(profileForm.value)" [formGroup]="profileForm">
+    <ion-item lines="none" color="light">
+      <div class="profile-card">
+       
+        <div class="label bottom">
+          <p>Cambiar</p>
+          <img [src]="currentImage" (click)="inputImageProfile.click()" />
+          <input
+            hidden
+            type="file"
+            #inputImageProfile
+            formControlName="photoURL"
+            (change)="showPreview($event)"
+          />
+        </div>
+      </div>
+    </ion-item>
+    <br />
+    <ion-item color="light">
+      <ion-label position="stacked" color="dark">Nombre</ion-label>
+      <ion-input color="dark" formControlName="displayName"></ion-input>
+    </ion-item>
+    <ion-text
+      class="ion-text-center ion-padding-start"
+      color="danger"
+      *ngIf="!profileForm.controls.displayName.valid  && profileForm.controls.displayName.dirty"
+    >
+      Largo minimo 3 caracteres
+    </ion-text>
+    <ion-item color="light" class="slide-bottom1">
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input
+        formControlName="email"
+        type="text"
+        placeholder="correo"
+      ></ion-input>
+    </ion-item>
+     <ion-item color="light" lines="none">
+      <ion-label color="dark">Tipo de cuenta</ion-label>
+      <ion-select  color="dark" interface="action-sheet">
+        <ion-select-option value="persona">Persona</ion-select-option>
+        <ion-select-option value="Organización">ONG</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item color="light">
+      <ion-label>Alertas</ion-label>
+      <ion-toggle  formControlName="avisos" slot="end" ></ion-toggle>
+    </ion-item>
+    <ion-item color="light">
+      <ion-label>Avisos por correo</ion-label>
+      <ion-toggle formControlName="correo" slot="end" ></ion-toggle>
+    </ion-item>
+    <ion-item color="light">
+      <ion-label>Dark mode</ion-label>
+      <ion-toggle formControlName="darkmode" slot="end" ></ion-toggle>
+    </ion-item>
+
+    <br />
+    <br />
+    <div class="span"></div>
+    <div class="mat-dialog-actions">
+      <ion-button
+        expand="block"
+        [disabled]="!profileForm.valid"
+        type="submit"
+        value="Save"
+        shape="round"
+        >GUARDAR CAMBIOS
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

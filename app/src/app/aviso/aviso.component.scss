@@ -1,0 +1,163 @@
+
+.tarjetasmall{
+    border-radius: 0px!important;
+    max-width: 500px;
+    box-shadow: 0px 1px 1px black;
+    margin: 0px;
+    padding : 0px;
+}
+ 
+ion-card {
+  position: relative;
+  background: var(--ion-color-medium)!important;
+  max-width: 364px;
+  height: 346px;
+  min-width: 330px;
+  background: var(--ion-color-light);
+  border-radius: 40px;
+  border-top-left-radius : 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: 0px 4px 4px black;
+  margin-bottom: 40px;
+  ion-card-header {
+    padding: 0px!important;
+    ion-item {
+      background:var(--ion-color-light)!important;;
+      padding: 0px!important;
+      position: absolute;
+      width: 100%;
+      left: 0px;
+      bottom: -20px;
+      border-radius: 30px;
+    }
+    ion-label {
+      font-size: 15px;
+      position: absolute;
+      color: var(--ion-color-light);
+      top: 10px;
+      z-index: 8;
+    }
+    .dias {
+      z-index: 8;
+      color: var(--ion-color-medium) !important;
+      right: 12px;
+      top : 30px;
+      font-weight: 900;
+      font-size: 15px;
+    }
+    .fotosNumero {
+      z-index: 1001;
+      font-weight: 200;
+      color: black !important;
+      right: 22px;
+      top : 13px;
+      font-size: 15px;
+    }
+    object-fit: cover;
+    min-height: 200px;
+    ion-card-title {
+      padding-left: 10px;
+    }
+    ion-card-subtitle {
+      padding-left: 10px;
+    }
+  }
+}
+ion-card-content {
+  padding-top: 27px;
+}
+
+
+ion-text {
+  background: var(--ion-color-medium);
+  font-weight: 900;
+  font-size: 25px !important;
+  padding-left: 50px;
+  color: var(--ion-color-dark);
+}
+.foto {
+  height: 260px;
+  width: 860px;
+
+}
+
+#iconofotos {
+  position: absolute;
+  font-size: 30px;
+  top:15px;
+  z-index: 10;
+  padding-left: 40!important;
+  color :white
+}
+#distancia {
+  font-weight: 200;
+  font-size: 15px;
+  color: var(--ion-color-light-contrast);
+  position: absolute;
+  top:20px;
+  right: 15px;
+}
+#fecha {
+  font-weight: 200;
+  font-size: smaller;
+  color: var(--ion-color-light-contrast);
+  position: absolute;
+  top:5px;
+  right: 15px;
+}
+.corazon {
+  position: absolute;
+  z-index: 1000;
+  top: 10px;
+  left: 10px;
+}
+.camara {
+  position: absolute;
+  z-index: 1000;
+  top: 10px;
+  right: 10px!important;
+}
+.ayudabusca {
+  font-size : 17px!important;
+  border-radius: 20;
+  color: var(--ion-color-light-contrast);
+}
+.ayudabuscalabel {
+  font-size : 15px!important;
+  position: relative;
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+  padding-top: 2px!important;
+  padding-bottom: 2px!important;
+  top: 0px !important;
+  margin-right: 30px;
+  border-radius: 10px;
+ 
+}
+.corazonactivo {
+  position: absolute;
+  z-index: 1000;
+ 
+  fill: var(--ion-color-tertiary);
+
+}
+.corazoninactivo {
+ 
+  position: absolute;
+  z-index: 1000;
+  
+  fill: white;
+}
+.corazonsmall {
+  position: absolute;
+left: -15px;
+   z-index: 1000;
+}
+.corazoncaja {
+  position: relative;
+ top: 250px;
+  left: 35px;
+}
+.resaltado {
+  background: var(--ion-color-tertiary-tint)!important;
+}

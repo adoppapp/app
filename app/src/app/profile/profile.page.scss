@@ -1,0 +1,48 @@
+.profile-card{
+ position: relative;
+ left: 50%;
+ transform: translateX(-50%);
+
+  .label{
+    display: inline-block;
+    font-size: small;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+    margin: 20px;
+    text-align: center;
+    border-radius: 50%;
+
+    p{
+      position: absolute;
+      width: 100%;
+      background: var( --ion-color-primary);
+      color:white!important;
+      text-transform: uppercase;
+      transition: all 0.5s ease;
+    }
+    img{
+      display: block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid var(--ion-color-secondary);
+      &:hover{
+        border: 2px solid var( --ion-color-primary);
+        cursor: pointer;
+      }
+    }
+  }
+}
+ion-input {
+   width: 100%!important;
+   display: table;
+    border-radius: 10px;
+
+}
+ion-button {
+    top :30px!important;
+}
+ion-label{
+    color :#455A64 !important;
+}

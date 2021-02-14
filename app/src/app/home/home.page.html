@@ -1,0 +1,121 @@
+<div class="erreCabecera">
+  <div id="titulo" color="dark">Avisos</div>
+
+  <div id="contenedortags">
+    <label
+      [className]="sexo !== 'Sexo' ? 'activo' : 'inactivo'"
+      (click)="opcionesSexo()"
+      id="tags"
+      >{{sexo}}</label
+    >
+    <label
+      [className]="edad !== 'Edad' ? 'activo' : 'inactivo'"
+      (click)="opcionesEdad()"
+      id="tags"
+      >{{edad}}</label
+    >
+    <label
+      [className]="size !=='Tamaño'? 'activo' : 'inactivo'"
+      (click)="opcionesTamano()"
+      id="tags"
+      >{{size}}</label
+    >
+    <svg-icon
+      *ngIf = (perrogato.perro.activo)
+      (click)="pushperro()"
+      src="./assets/svg/perro-color.svg"
+      class="perro"
+    ></svg-icon>
+     <svg-icon
+      *ngIf = !(perrogato.perro.activo)
+      (click)="pushperro()"
+      src="./assets/svg/dog-line.svg"
+      class="perro"
+    ></svg-icon>
+    <svg-icon
+      *ngIf = (perrogato.gato.activo)
+      (click)="pushgato()"
+      src="./assets/svg/gato-color.svg"
+      class="gato"
+    ></svg-icon>
+     <svg-icon
+     *ngIf = !(perrogato.gato.activo)
+      (click)="pushgato()"
+      src="./assets/svg/gato-line.svg"
+      class="gato"
+    ></svg-icon>
+  </div>
+  <div *ngIf="!srvApp.visita" >
+      <img
+        (click)="abrirMenu()"
+        class="avatar"
+        *ngIf="authSrv.userData$| async"
+        [src]="user.photoURL"
+      />
+  </div>
+
+   <div *ngIf="srvApp.visita" >
+      <a class="login" [routerLink]="['/acceso/login']"
+                >Login</a>
+  </div>
+<div [@estadoPerroGato]="swtPerroGato" class="perrogato">
+    <ion-toggle (click)="modovisualizacion()" [(ngModel)]="modoDark" color="primary"></ion-toggle>
+   <svg-icon class="sol"   src="./assets/svg/sol.svg" ></svg-icon>
+    <svg-icon class="luna"   src="./assets/svg/luna.svg" ></svg-icon>
+    <ion-icon
+      [@iconoPerroGato]="swtFlechaPerroGato"
+      (click)="pushPerroGato()"
+      class="iconoFlecha"
+      name="chevron-forward-outline"
+    ></ion-icon>
+  </div>
+ 
+</div>
+
+
+<ion-content color="light">
+  <ion-progress-bar
+    *ngIf="(swtCargando)"
+    type="indeterminate"
+  ></ion-progress-bar>
+  <ion-refresher color="primary" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingSpinner="lines"> </ion-refresher-content>
+  </ion-refresher>
+  
+  <div >
+    <ion-grid *ngIf="(avisos)" [@cardAnimation]="avisos.length">
+      <ion-row justify-content-center>
+        <ion-col
+          sizeXl="4"
+          sizeLg="6"
+          sizeMd="6"
+          sizeSm="12"
+          sizeXs="12"
+          *ngFor="let aviso of avisos"
+        >  <div *ngIf="!srvApp.visita">
+          <app-aviso  *ngIf="authSrv.userData$| async" [aviso]="aviso" [user]="user.uid"></app-aviso>
+          </div>
+          <app-aviso *ngIf="srvApp.visita" [aviso]="aviso" [user]="'visita'"></app-aviso>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <br />
+    <br />
+    <br />
+    <br />
+  </div>
+  <div *ngIf="(!swtLleno)" >
+    <div *ngIf="(!swtCargando)">
+      <svg-icon src="./assets/svg/triste.svg" class="triste"></svg-icon>
+      <br />
+
+      <div class="mensaje">
+        <ion-label
+          >No hay mascotas con el criterio de busqueda seleccionado, quizas si
+          intentas mas tarde</ion-label
+        >
+      </div>
+    </div>
+  </div>
+
+</ion-content>

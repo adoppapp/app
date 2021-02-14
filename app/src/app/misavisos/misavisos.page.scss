@@ -1,0 +1,73 @@
+.nombre {
+  font-weight: 900;
+}
+.fecha {
+  font-weight: 200;
+  font-size: small;
+}
+ion-item {
+ 
+  
+}
+ion-img {
+    left:-10px!important;
+}
+ion-badge {
+  position: relative;
+  top :-10px!important;
+  left :-10px!important;
+  
+}
+.corazon {
+ 
+  position: realtive;
+  
+}
+
+.favoritos_texto {
+   padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid var(--ion-color-dark);;
+  background: var(--ion-color-medium);
+  border-radius: 50%;
+  position: absolute;
+  font-weight: 200;
+  font-size: small;
+  
+  left: 0px;
+  top: -24px;
+}
+.favoritos {
+  position: relative;
+  overflow: visible;
+  border-style: solid;
+  background: var(--ion-color-medium);
+  width: 200!important;
+}
+.solicitud {
+  position: relative;
+  left: 200px;
+  padding-left: 30px!important;
+  
+}
+.solicitud_texto {
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid var(--ion-color-dark);
+  background: var(--ion-color-medium);
+  border-radius: 50%;
+  position: absolute;
+  font-weight: 200;
+  font-size: small;
+  left: 0px;
+  top: 23px;
+}
+.estatus {
+  position: absolute;
+  top: 3px;
+  left : 50px;
+  z-index: 999;
+  font-weight: 800;
+  font-size: 10px;
+
+}

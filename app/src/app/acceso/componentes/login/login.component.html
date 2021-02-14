@@ -1,0 +1,165 @@
+<div *showItBootstrap="['xs']" class="contenedor">
+    <div class="logintitulo ">
+      Login
+    </div>
+    <form [formGroup]="rForm">
+      <ion-item  class="swoopInRight" color="light" lines="none">
+        <ion-icon slot="start"
+          name="mail-outline"
+        ></ion-icon>
+        <ion-item  color="light" >
+          <ion-label color="dark" position="floating">Correo</ion-label>
+          <ion-input
+          class='iteminput'
+            formControlName="email"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-text
+        class="center animated zoomIn fast"
+        color="danger"
+        *ngIf="!rForm.controls.email.valid && rForm.controls.email.dirty"
+      >
+        Favor ingresar Correo Valido.
+      </ion-text>
+      <ion-item   class="swoopInRight"  color="light" lines="none">
+        <ion-icon
+           slot="start"
+          name="key-outline"
+        ></ion-icon>
+        <ion-item  color="light" class="animated bounceInRight fast">
+          <ion-label color="dark" position="floating">Contraseña</ion-label>
+          <ion-input
+           class='iteminput'
+            formControlName="pwd"
+            type="password"
+          ></ion-input>
+        </ion-item>
+        
+      </ion-item>
+      <ion-text
+        class="center "
+        color="danger"
+        *ngIf="!rForm.controls.pwd.valid && rForm.controls.pwd.dirty"
+      >
+        Largo minimo 6 caracteres
+      </ion-text>
+      <div class="abajo  swoopInRight">
+        <ion-button
+          shape="round"
+          expand="block"
+          [disabled]="!rForm.valid"
+          (click)="onLogin()"
+          >Entrar</ion-button
+        >
+        <ion-button (click)="loginGoogle()"  shape="round" expand="block" fill="outline">
+        <svg-icon
+            src="./assets/svg/google.svg" >
+        </svg-icon>
+        <ion-label color="dark">Login con Google</ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+        
+        <ion-row>
+          <ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/olvido']"
+                >Reiniciar password</a
+              >
+            </ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/registro']"
+                >Registrarse</a
+              >
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+</div>
+<!-- ************************** Grande ************************************************************ -->
+<div *showItBootstrap="['md','sm','lg','xl']" class="contenedor">
+  <ion-card>
+    <div class="logintitulo titulogrande">
+      Login
+    </div>
+    <form [formGroup]="rForm">
+      <ion-item  class="swoopInRight" color="medium" lines="none">
+        <ion-icon
+        
+          name="mail-outline"
+        ></ion-icon>
+     
+          <ion-label  class="labelgrande" color="dark" >Correo</ion-label>
+          <ion-input class="inputgrande" color="dark"
+            formControlName="email"
+            type="text"
+          ></ion-input>
+   
+      </ion-item>
+      <ion-text
+        class="center animated zoomIn fast"
+        color="danger"
+        *ngIf="!rForm.controls.email.valid && rForm.controls.email.dirty"
+      >
+        Favor ingresar Correo Valido.
+      </ion-text>
+      <ion-item   class="swoopInRight" color="medium" lines="none">
+        <ion-icon
+        
+          name="key-outline"
+        ></ion-icon>
+       
+          <ion-label class="labelgrande" color="dark" >Contraseña</ion-label>
+          <ion-input
+            class="inputgrande" color="dark"
+            formControlName="pwd"
+            type="password"
+          ></ion-input>
+    
+        
+      </ion-item>
+      <ion-text
+        class="center "
+        color="danger"
+        *ngIf="!rForm.controls.pwd.valid && rForm.controls.pwd.dirty"
+      >
+        Largo minimo 6 caracteres
+      </ion-text>
+      <div class="abajo swoopInRight ">
+        <ion-button (click)="loginGoogle()"  shape="round"  fill="outline">
+        <svg-icon
+            src="./assets/svg/google.svg" >
+        </svg-icon>
+        <ion-label color="dark">Login con Google</ion-label>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+        <ion-button
+          shape="round"
+          class="botongrande"
+          [disabled]="!rForm.valid"
+          (click)="onLogin()"
+          >Entrar</ion-button
+        >
+       
+        
+        <ion-row>
+          <ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/olvido']"
+                >Reiniciar password</a
+              >
+            </ion-col>
+            <ion-col>
+              <a class="links" [routerLink]="['/acceso/registro']"
+                >Registrarse</a
+              >
+            </ion-col>
+          </ion-col>
+        </ion-row>
+      </div>
+    </form>
+    </ion-card>
+</div>
+

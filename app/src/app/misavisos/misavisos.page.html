@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mis avisos</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-progress-bar
+    *ngIf="(swtCargando)"
+    type="indeterminate"
+  ></ion-progress-bar>
+<ion-content>
+  <ion-progress-bar
+    *ngIf="(swtCargando)"
+    type="indeterminate"
+  ></ion-progress-bar>
+  
+ <div  *ngIf="(avisos)" color="light" [@cardAnimation]="avisos.length">
+    <ion-item color="light"
+      [routerLink]="['/avisodetalle/', aviso.id]"
+      routerLinkActive="router-link-active"
+      *ngFor="let aviso of avisos "
+    >
+    <div>
+    <ion-thumbnail>
+      <ion-img  [src]="aviso.fotos[0]"> </ion-img>
+     
+    </ion-thumbnail>
+     <ion-label  class="estatus">{{aviso.estatus}}</ion-label>
+    </div>
+      <ion-label slot="end" class="nombre">{{aviso.nombre| titlecase}}</ion-label>
+  
+      <div slot="end">
+        <svg-icon  
+          [style.fill]="'#FFFFFF'"
+          src="./assets/svg/corazonmenu.svg"
+          class="corazon"
+        ></svg-icon>
+        <ion-badge color="primary">{{aviso.favoritos}}</ion-badge>
+        </div>
+        <div slot="end">
+         <svg-icon slot="end" 
+          [style.fill]="'#FFFFFF'"
+          src="./assets/svg/solicitud-adopcion.svg"
+          class="solictud"
+        ></svg-icon>
+        <ion-badge color="primary">{{aviso.solicitudes}}</ion-badge>
+      </div>
+    </ion-item>
+  </div>
+</ion-content>

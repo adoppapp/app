@@ -1,0 +1,39 @@
+<ion-header color="light">
+ 
+
+  <img  class="avatar" *ngIf="authSrv.userData$| async" [src]="user.photoURL" />
+<ion-button size="small" (click)="llamaraccion('Editar')" shape="round" class="editar" color="medium"> <ion-label class="editartexto">Editar perfil</ion-label></ion-button>
+  <ion-label *ngIf="authSrv.userData$| async" class="labelcabecera">{{user.displayName}}</ion-label>
+</ion-header>
+<ion-content color="light"  fullscreen="true">
+  <div
+   
+  >
+   <ion-item color="medium" lines="none"  (click)="llamaraccion('Notificaciones')">
+    <svg-icon [style.fill]="srvApp.dark" src="./assets/svg/notificacion.svg"></svg-icon>
+    <ion-label>Notificaciones</ion-label>
+  </ion-item>
+ <ion-item color="medium" lines="none"  (click)="llamaraccion('Favoritos')">
+    <svg-icon [style.fill]="srvApp.dark" src="./assets/svg/corazonmenu.svg"></svg-icon>
+    <ion-label>Favoritos</ion-label>
+  </ion-item>
+   <ion-item color="medium" lines="none"  (click)="llamaraccion('Solicitudes')">
+    <svg-icon [style.fill]="srvApp.dark" src="./assets/svg/solicitud-adopcion.svg"></svg-icon>
+    <ion-label>Mis solicitudes</ion-label>
+  </ion-item>
+    <ion-item color="medium" lines="none"  (click)="llamaraccion('Avisos')">
+    <svg-icon [style.fill]="srvApp.dark" src="./assets/svg/avisos.svg"></svg-icon>
+    <ion-label>Mis avisos</ion-label>
+  </ion-item>
+   <ion-item color="medium" lines="none"  (click)="llamaraccion('libro')">
+    <svg-icon [style.fill]="srvApp.dark" src="./assets/svg/libro.svg"></svg-icon>
+    <ion-label>Seguimiento de adopciones</ion-label>
+  </ion-item>
+   <ion-item color="medium" lines="none"  (click)="llamaraccion('exito')">
+    <svg-icon [style.fill]="srvApp.dark" src="./assets/svg/adopcion.svg"></svg-icon>
+    <ion-label>Hogares encontrados</ion-label>
+  </ion-item>
+<ion-button size="small" (click)="llamaraccion('Salir')" shape="round" class="salir" color="medium"><svg-icon [style.fill]="srvApp.dark" src="./assets/svg/exit.svg"></svg-icon>  <ion-label class="salirtexto">Salir</ion-label></ion-button>
+    
+  </div>
+</ion-content>
